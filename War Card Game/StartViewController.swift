@@ -11,10 +11,16 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    @IBOutlet weak var tournamentsButton: UIButton!
     @IBOutlet weak var playGameButton: UIButton!
     
     
     @IBAction func playGameButtonTapped(sender: UIButton) {
         performSegueWithIdentifier("segueToGameScreen", sender: playGameButton)
+    }
+    
+    @IBAction func tournamentsButtonTapped(sender: AnyObject) {
+        Skillz.skillzInstance().launchSkillz()
+        performSegueWithIdentifier("segueToGameScreen", sender: tournamentsButton)
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E8K-RX-unA">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,76 +19,123 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ql8-NK-BC6">
-                                <rect key="frame" x="-67" y="-22" width="667" height="622"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="600"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lAf-Gy-6f7" userLabel="logo">
                                 <rect key="frame" x="239" y="0.0" width="122" height="67"/>
                                 <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="80" y="100" width="240" height="67"/>
+                                </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-gY-Sg0" userLabel="singlePlayerButton">
-                                <rect key="frame" x="175" y="280" width="250" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-gY-Sg0" userLabel="singlePlayerButton">
+                                <rect key="frame" x="175" y="0.0" width="250" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="MgA-5A-gBE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Play Game" backgroundImage="war_play_game_button_background">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="SINGLE PLAYER" backgroundImage="war_play_game_button_background">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playGameButtonTapped:" destination="E8K-RX-unA" eventType="touchUpInside" id="YbT-xh-U2z"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="gfx_powered_by_skillz_top" translatesAutoresizingMaskIntoConstraints="NO" id="owE-QZ-Fp1">
+                                <rect key="frame" x="252" y="0.0" width="97" height="23"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-7z-ZBx">
+                                <rect key="frame" x="175" y="0.0" width="250" height="55"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="REx-d2-nuP"/>
+                                    <constraint firstAttribute="height" constant="40" id="ngh-0R-2ky"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="TOURNAMENTS" backgroundImage="btn_tournaments_orange">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="REx-d2-nuP"/>
+                                        <exclude reference="ngh-0R-2ky"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="REx-d2-nuP"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ngh-0R-2ky"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="tournamentsButtonTapped:" destination="E8K-RX-unA" eventType="touchUpInside" id="7LM-IR-HN9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="top" secondItem="ffz-QI-sn3" secondAttribute="top" constant="25" id="4Ai-2G-31t"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ql8-NK-BC6" secondAttribute="trailing" constant="-20" id="6lg-LD-l8V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lAf-Gy-6f7" secondAttribute="trailing" constant="60" id="AKD-sm-GUu"/>
-                            <constraint firstItem="ql8-NK-BC6" firstAttribute="top" secondItem="ffz-QI-sn3" secondAttribute="topMargin" id="MWb-8Z-UmZ"/>
-                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="leading" secondItem="ffz-QI-sn3" secondAttribute="leadingMargin" constant="60" id="SoT-pL-Oer"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="ql8-NK-BC6" secondAttribute="bottom" id="Uzf-Pv-sLk"/>
-                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="top" secondItem="C5Q-ud-dAD" secondAttribute="bottom" constant="80" id="Xg4-od-owu"/>
-                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="centerY" secondItem="ffz-QI-sn3" secondAttribute="centerY" id="ezU-Fr-4BI"/>
-                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="lcl-Q4-fIR"/>
-                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="nl7-8J-tgm"/>
-                            <constraint firstItem="ql8-NK-BC6" firstAttribute="leading" secondItem="ffz-QI-sn3" secondAttribute="leadingMargin" constant="-20" id="y0m-cC-i2U"/>
+                            <constraint firstItem="ql8-NK-BC6" firstAttribute="top" secondItem="ffz-QI-sn3" secondAttribute="top" id="0uE-X7-f4A"/>
+                            <constraint firstItem="owE-QZ-Fp1" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="6Qx-Od-xZL"/>
+                            <constraint firstAttribute="bottom" secondItem="Z5D-gY-Sg0" secondAttribute="bottom" constant="135" id="87Q-TK-FJd"/>
+                            <constraint firstItem="XcD-7z-ZBx" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="EJj-t9-hXQ"/>
+                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="top" secondItem="owE-QZ-Fp1" secondAttribute="bottom" constant="88" id="EgS-td-sbM"/>
+                            <constraint firstAttribute="bottom" secondItem="Z5D-gY-Sg0" secondAttribute="bottom" constant="335" id="Gth-ZU-9eP"/>
+                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="top" secondItem="owE-QZ-Fp1" secondAttribute="bottom" constant="78" id="Nh1-8Z-gu1"/>
+                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="Xrs-8s-V6F"/>
+                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="top" secondItem="XcD-7z-ZBx" secondAttribute="bottom" constant="40" id="YVh-jP-Xrh"/>
+                            <constraint firstItem="Z5D-gY-Sg0" firstAttribute="top" secondItem="XcD-7z-ZBx" secondAttribute="bottom" constant="50" id="aba-Qj-q2V"/>
+                            <constraint firstAttribute="bottom" secondItem="ql8-NK-BC6" secondAttribute="bottom" id="acL-Cs-OM7"/>
+                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="top" secondItem="ffz-QI-sn3" secondAttribute="topMargin" constant="25" id="cde-7q-fbi"/>
+                            <constraint firstItem="ql8-NK-BC6" firstAttribute="leading" secondItem="ffz-QI-sn3" secondAttribute="leading" id="g9K-ma-Nou"/>
+                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="centerX" secondItem="ffz-QI-sn3" secondAttribute="centerX" id="kPd-Nt-oHd"/>
+                            <constraint firstItem="lAf-Gy-6f7" firstAttribute="top" secondItem="ffz-QI-sn3" secondAttribute="top" constant="100" id="qRF-kl-xEw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="MWb-8Z-UmZ"/>
-                                <exclude reference="y0m-cC-i2U"/>
-                                <exclude reference="4Ai-2G-31t"/>
-                                <exclude reference="AKD-sm-GUu"/>
-                                <exclude reference="SoT-pL-Oer"/>
-                                <exclude reference="Xg4-od-owu"/>
+                                <exclude reference="cde-7q-fbi"/>
+                                <exclude reference="qRF-kl-xEw"/>
+                                <exclude reference="87Q-TK-FJd"/>
+                                <exclude reference="EgS-td-sbM"/>
+                                <exclude reference="Gth-ZU-9eP"/>
+                                <exclude reference="Nh1-8Z-gu1"/>
+                                <exclude reference="YVh-jP-Xrh"/>
+                                <exclude reference="aba-Qj-q2V"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="4Ai-2G-31t"/>
+                                <include reference="cde-7q-fbi"/>
+                                <include reference="87Q-TK-FJd"/>
+                                <include reference="Nh1-8Z-gu1"/>
+                                <include reference="YVh-jP-Xrh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="MWb-8Z-UmZ"/>
-                                <include reference="y0m-cC-i2U"/>
-                                <include reference="AKD-sm-GUu"/>
-                                <include reference="SoT-pL-Oer"/>
-                                <include reference="Xg4-od-owu"/>
+                                <include reference="qRF-kl-xEw"/>
+                                <include reference="EgS-td-sbM"/>
+                                <include reference="Gth-ZU-9eP"/>
+                                <include reference="aba-Qj-q2V"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="playGameButton" destination="Z5D-gY-Sg0" id="hzt-3g-Yj7"/>
+                        <outlet property="tournamentsButton" destination="XcD-7z-ZBx" id="6To-7H-NfW"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueToGameScreen" id="YbV-5p-V92"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWS-2B-i5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-321" y="534"/>
+            <point key="canvasLocation" x="-367.5" y="534"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -374,8 +422,10 @@
     </scenes>
     <resources>
         <image name="background" width="667" height="622"/>
+        <image name="btn_tournaments_orange" width="250" height="55"/>
         <image name="card_back" width="166" height="242"/>
         <image name="deal_button" width="82" height="31"/>
+        <image name="gfx_powered_by_skillz_top" width="97" height="23"/>
         <image name="logo" width="122" height="67"/>
         <image name="war_play_game_button_background" width="250" height="40"/>
     </resources>

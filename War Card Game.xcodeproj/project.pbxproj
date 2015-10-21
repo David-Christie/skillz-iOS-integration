@@ -13,6 +13,8 @@
 		F34122091BD4FF3000427925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34122081BD4FF3000427925 /* Assets.xcassets */; };
 		F34122151BD6845800427925 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34122141BD6845800427925 /* StartViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F34122171BD6880C00427925 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34122161BD6880C00427925 /* EndViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F341221C1BD79C5900427925 /* SkillzSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F341221A1BD79C5900427925 /* SkillzSDK-iOS.framework */; settings = {ASSET_TAGS = (); }; };
+		F341221D1BD79C5900427925 /* SkillzSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F341221B1BD79C5900427925 /* SkillzSDK.bundle */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,9 @@
 		F341220D1BD4FF3000427925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34122141BD6845800427925 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F34122161BD6880C00427925 /* EndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
+		F34122181BD799D200427925 /* SkillzBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillzBridgingHeader.h; sourceTree = "<group>"; };
+		F341221A1BD79C5900427925 /* SkillzSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "SkillzSDK-iOS.framework"; sourceTree = "<group>"; };
+		F341221B1BD79C5900427925 /* SkillzSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SkillzSDK.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F341221C1BD79C5900427925 /* SkillzSDK-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 		F34121F51BD4FF2F00427925 = {
 			isa = PBXGroup;
 			children = (
+				F34122191BD79C5900427925 /* SkillzSDK-iOS.embeddedframework */,
+				F34122181BD799D200427925 /* SkillzBridgingHeader.h */,
 				F34122001BD4FF3000427925 /* War Card Game */,
 				F34121FF1BD4FF3000427925 /* Products */,
 			);
@@ -75,6 +83,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		F34122191BD79C5900427925 /* SkillzSDK-iOS.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				F341221A1BD79C5900427925 /* SkillzSDK-iOS.framework */,
+				F341221B1BD79C5900427925 /* SkillzSDK.bundle */,
+			);
+			path = "SkillzSDK-iOS.embeddedframework";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +102,7 @@
 				F34121FA1BD4FF3000427925 /* Sources */,
 				F34121FB1BD4FF3000427925 /* Frameworks */,
 				F34121FC1BD4FF3000427925 /* Resources */,
+				F341221E1BD79DA300427925 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,12 +150,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F341221D1BD79C5900427925 /* SkillzSDK.bundle in Resources */,
 				F34122091BD4FF3000427925 /* Assets.xcassets in Resources */,
 				F34122071BD4FF3000427925 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F341221E1BD79DA300427925 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/SkillzSDK.bundle/postprocess.sh\" ]; then\n/bin/sh \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/SkillzSDK.bundle/postprocess.sh\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F34121FA1BD4FF3000427925 /* Sources */ = {
@@ -250,10 +285,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkillzSDK-iOS.embeddedframework",
+				);
 				INFOPLIST_FILE = "War Card Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"-lz",
+					"-lxml2",
+					"-weak_framework",
+					Passkit,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iwin.skillzgames.War-Card-Game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = SkillzBridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -261,10 +310,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkillzSDK-iOS.embeddedframework",
+				);
 				INFOPLIST_FILE = "War Card Game/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"-lz",
+					"-lxml2",
+					"-weak_framework",
+					Passkit,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iwin.skillzgames.War-Card-Game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = SkillzBridgingHeader.h;
 			};
 			name = Release;
 		};

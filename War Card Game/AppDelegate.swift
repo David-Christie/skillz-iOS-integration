@@ -9,13 +9,14 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SkillzDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Skillz.skillzInstance().initWithGameId("1387", forDelegate: self, withEnvironment: SkillzEnvironment.Sandbox);
         return true
     }
 
@@ -41,6 +42,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func tournamentWillBegin(gameParameters: [NSObject : AnyObject]!, withMatchInfo matchInfo: SKZMatchInfo!) {
+        // This code is called when a pleyer starts a game in the Skillz portal.
+        NSLog("Game Parameters : %@", gameParameters)
+        NSLog("Now starting a game...")
+    }
+    
+    func skillzWillExit() {
+        // This code is called when exiting the Skillz portal back to the normal game
+        NSLog("Skillz portal exited.")
+    }
+    
+    func preferredSkillzInterfaceOrientation() -> SkillzOrientation {
+        // The orientation mus be locked when using the Skillz portal
+        // return SkillzOrientation.Portrait for portrait based applications
+        // return SkillzOrientation.Landscape for landscape based applications
+        return SkillzOrientation.Landscape
+    }
+    // This bit is throwing an error
+    /*
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    */
+    /*
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    */
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Landscape
+    }
 }
 

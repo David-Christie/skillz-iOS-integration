@@ -19,6 +19,14 @@ class EndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if(Skillz.skillzInstance().tournamentIsInProgress) {
+            Skillz.skillzInstance().displayTournamentResultsWithScore(playerScore) {
+                // This code is called when exiting the Skill portal
+                NSLog("Reporting final score to Skillz")
+                NSLog("Exiting the Skillz portal")
+            }
+        }
+        
         if(playerScore > enemyScore) {
             gameResultLabel.text = "Conrgatulations, you won!"
         }

@@ -73,6 +73,10 @@ class ViewController: UIViewController {
             enemyScoreLabel.text = String(enemyScore)
         }
         
+        if(Skillz.skillzInstance().tournamentIsInProgress) {
+            Skillz.skillzInstance().updatePlayersCurrentScore(playerScore)
+        }
+        
         if(++counter == 10) {
             endGame()
         }
