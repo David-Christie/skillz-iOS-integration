@@ -59,19 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SkillzDelegate {
         // return SkillzOrientation.Landscape for landscape based applications
         return SkillzOrientation.Landscape
     }
-    // This bit is throwing an error
     /*
-    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    */
-    /*
-    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-    */
     func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Landscape
     }
+    */
+    (NSUInteger) application
 }
 

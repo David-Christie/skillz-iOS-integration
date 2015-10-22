@@ -51,7 +51,11 @@ class ViewController: UIViewController {
         let secondCardValue : UInt32 = arc4random_uniform(13) + 1
         let secondCardSuit : UInt32 = arc4random_uniform(4) + 1
         var secondCardImageURI : String = ""
-        
+        /*
+        if(Skillz.skillzInstance().tournamentIsInProgress) {
+            firstCardValue = Skillz.skillzInstance().
+        }
+        */
         for index in 1...2 {
             if(index == 1) {
                 firstCardImageURI = generateImageFileName(firstCardValue, suit: firstCardSuit)
